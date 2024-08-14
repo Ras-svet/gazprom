@@ -87,6 +87,18 @@
     padding: 0 10px;
   }
 
+  .table__header-cell {
+    & button {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 110px;
+      transform: translateY(-50%);
+    }
+  }
+
   .table__header-cell,
   .table__body-cell {
     padding: 10px;
