@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Lato";
+  src: url(../assets/fonts/Lato-Regular.woff) format("woff"), url(../assets/fonts/Lato-Bold.woff2) format("woff2");
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url(../assets/fonts/Lato-Semibold.woff) format("woff"), url(../assets/fonts/Lato-Semibold.woff2) format("woff2");
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url(../assets/fonts/Lato-Regular.woff) format("woff"), url(../assets/fonts/Lato-Regular.woff2) format("woff2");
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

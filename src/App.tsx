@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { observer } from 'mobx-react-lite';
+import Table from './components/Table/Table';
+import { useRootStore } from './models/RootStore';
+import './styles/App.css'
 
-function App() {
+const App: React.FC = observer(() => {
+  const { tableStore } = useRootStore();
+
+  React.useEffect(() => {
+    tableStore.loadTableData();
+  }, [tableStore]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="body">
+      <div className="page">
+        {tableStore.isLoading ? (
+          <div>Загрузка...</div>
+        ) : (
+          <Table />
+        )}
+      </div>
     </div>
   );
-}
+});
 
 export default App;

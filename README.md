@@ -1,46 +1,34 @@
-# Getting Started with Create React App
+# Веб-приложение для просмотра данных из CSV-файлов
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Это веб-приложение отображающее постранично таблицу с данными без перезагрузки основной страницыпредназначено для просмотра и позволяющее взаимодействовать с табличными данными из CSV-файлов. Приложение предоставляет пользователям следующие возможности:
 
-## Available Scripts
+- **Фильтрация данных**: Фильтровать записи в третьем столбце по алфавиту.
+- **Редактирование ячеек таблицы**: Изменять значения ячеек прямо в таблице.
 
-In the project directory, you can run:
+## Используемые технологии
 
-### `npm start`
+- **TypeScript**: Обеспечивает типобезопасность и улучшает опыт разработки.
+- **React**: JavaScript-библиотека для построения пользовательских интерфейсов.
+- **MobX**: Библиотека для управления состоянием приложения.
+- **PapaParse**: Библиотека для парсинга данных CSV.
+- **Webpack**: Модульный бандлер для JavaScript-приложений.
+- **Babel**: Компилятор JavaScript для преобразования кода ES6+ в совместимый JavaScript.
+- **SCSS**: Препроцессор CSS для написания более удобных и модульных стилей.
+- **HTML/CSS**: Стандартные технологии для создания веб-страниц.
+- **PostCSS**: Инструмент для трансформации CSS с помощью JavaScript-плагинов.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Настройка Docker
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Приложение включает поддержку Docker для простой контейнеризации и развертывания. Следуйте инструкциям ниже, чтобы создать и запустить контейнер Docker.
 
-### `npm test`
+### Создание и запуск контейнера
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Сначала создайте образ Docker, запустив файл из проекта:
+   ```bash
+   ./build.sh
 
-### `npm run build`
+2. Запустите контейнер с помощью:
+   ```bash
+   ./run.sh
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+После чего приложение будет доступно по адресу localhost:8085

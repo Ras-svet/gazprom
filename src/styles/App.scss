@@ -1,0 +1,39 @@
+$background-color: #F1F2F4;
+$max-width-page: 1280px;
+$font-family-main: 'Lato', Arial, sans-serif;
+$content-width: 1100px;
+$page-max-width-m: 1000px;
+
+.body {
+  background-color: $background-color;
+
+  @media screen and (max-width: $content-width) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.page {
+  min-height: 100vh;
+  max-width: $max-width-page;
+  font-family: $font-family-main;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 30px;
+
+  @media screen and (max-width:1330px) {
+    max-width: $page-max-width-m;
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 800px) {
+    margin: 0 15px;
+  }
+}

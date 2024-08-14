@@ -1,0 +1,46 @@
+.body {
+  background-color: #F1F2F4;
+}
+@media screen and (max-width: 1100px) {
+  .body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.page {
+  min-height: 100vh;
+  max-width: 1280px;
+  font-family: "Lato", Arial, sans-serif;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 30px;
+}
+@media screen and (max-width: 1330px) {
+  .page {
+    max-width: 1000px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .page {
+    width: 100%;
+    margin: 0 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media screen and (max-width: 800px) {
+  .page {
+    margin: 0 15px;
+  }
+}
