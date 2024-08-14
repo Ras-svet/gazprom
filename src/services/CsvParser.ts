@@ -12,7 +12,6 @@ export const parseCsv = (filePath: string): Promise<CsvData> => {
       header: true,
       skipEmptyLines: true,
       complete: (results) => {
-        console.log('CSV Parsing Complete:', results);
         if (results.errors.length) {
           console.error('Errors:', results.errors);
           reject(results.errors);

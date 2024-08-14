@@ -1,7 +1,27 @@
 import { makeAutoObservable } from 'mobx';
 import { parseCsv } from '../services/CsvParser';
 
-const CSV_FILE_PATH = '/data/article_def_v_orig.csv';
+// Функция для проверки доступности файла
+const checkFileExists = async (url: string): Promise<boolean> => {
+  try {
+    const response = await fetch(url, { method: 'HEAD' });
+    return response.ok;
+  } catch (error) {
+    console.error(`Error checking file at ${url}:`, error);
+    return false;
+  }
+};
+
+// Функция для получения правильного пути к файлу
+const getCSVFilePath = async (): Promise<string> => {
+  const defaultPath = '/data/article_def_v_orig.csv';
+  const fallbackPath = '/gazprom/data/article_def_v_orig.csv';
+
+  if (await checkFileExists(defaultPath)) {
+    return defaultPath;
+  }
+  return fallbackPath;
+};
 
 class TableStore {
   data: Record<string, any>[] = [];
@@ -22,7 +42,8 @@ class TableStore {
   loadTableData = async () => {
     this.isLoading = true;
     try {
-      const { columns, data } = await parseCsv(CSV_FILE_PATH);
+      const filePath = await getCSVFilePath(); // Получаем правильный путь к файлу
+      const { columns, data } = await parseCsv(filePath);
       this.columns = columns;
       this.data = data;
     } catch (error) {
@@ -31,7 +52,7 @@ class TableStore {
       this.isLoading = false;
     }
   };
-
+  
   // Метод для получения данных текущей страницы
   get currentPageData() {
     const start = (this.currentPage - 1) * this.rowsPerPage;
