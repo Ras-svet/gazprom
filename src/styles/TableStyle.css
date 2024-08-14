@@ -52,6 +52,7 @@
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
+  resize: none;
 }
 .table__body-row:nth-child(odd) {
   background-color: #ffffff;

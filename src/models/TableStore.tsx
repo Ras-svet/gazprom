@@ -1,26 +1,18 @@
 import { makeAutoObservable } from 'mobx';
 import { parseCsv } from '../services/CsvParser';
 
-// Функция для проверки доступности файла
-const checkFileExists = async (url: string): Promise<boolean> => {
-  try {
-    const response = await fetch(url, { method: 'HEAD' });
-    return response.ok;
-  } catch (error) {
-    console.error(`Error checking file at ${url}:`, error);
-    return false;
-  }
-};
-
 // Функция для получения правильного пути к файлу
-const getCSVFilePath = async (): Promise<string> => {
-  const defaultPath = '/data/article_def_v_orig.csv';
-  const fallbackPath = '/gazprom/data/article_def_v_orig.csv';
-
-  if (await checkFileExists(defaultPath)) {
-    return defaultPath;
+const getCSVFilePath = (): string => {
+  const localHostURL = 'http://localhost:8085';
+  const currentURL = window.location.origin;
+  
+  // Если URL совпадает с localhost:8085, используем путь для локального хоста
+  if (currentURL === localHostURL) {
+    return '/data/article_def_v_orig.csv';
   }
-  return fallbackPath;
+  
+  // Иначе используем путь для другого окружения
+  return '/gazprom/data/article_def_v_orig.csv';
 };
 
 class TableStore {
@@ -52,7 +44,7 @@ class TableStore {
       this.isLoading = false;
     }
   };
-  
+
   // Метод для получения данных текущей страницы
   get currentPageData() {
     const start = (this.currentPage - 1) * this.rowsPerPage;
