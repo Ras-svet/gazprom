@@ -11,8 +11,7 @@ const TableRow: React.FC<TableRowProps> = ({ row, onCellChange, rowIndex }) => {
     <tr className="table__body-row">
       {Object.keys(row).map((column, colIndex) => (
         <td key={colIndex} className="table__body-cell">
-          <input
-            type="text"
+          <textarea
             value={row[column] || ''}
             onChange={(e) => onCellChange(column, e.target.value, rowIndex)}
             className="table__body-input"

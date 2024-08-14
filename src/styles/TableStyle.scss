@@ -79,7 +79,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
   .table {
     display: block;
     overflow-x: auto;
@@ -89,7 +89,9 @@
 
   .table__header-cell,
   .table__body-cell {
-    white-space: nowrap;
-    padding: 15px;
+    padding: 10px;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
   }
 }
